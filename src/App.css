@@ -83,6 +83,26 @@ h2 {
   text-align: center;
 }
 
+.popup {
+  position: fixed;
+  left: 5%;
+  top: 5%;
+  right: 5%;
+  bottom: 5%;
+
+  font-size: 40px;
+  font-family: "fantasy", "Verdana", "sans-serif";
+  text-align: center;
+
+  border: 5px solid white;
+  border-radius: 20px;
+  background-color: rgba(14, 102, 85, .95);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media only screen and (max-width: 700px) {
   .bear {
     width: 30%;
