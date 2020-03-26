@@ -33,8 +33,9 @@ const shuffleArray = (a) => {
 
 const getRandomBears = () => {
   const shuffeledBears = shuffleArray(bears);
-  shuffeledBears[4] = "BINGO";
-  return shuffeledBears.slice(0, 9);
+  const correctBears = shuffeledBears.slice(0, 9)
+  correctBears[4] = "BINGO";
+  return correctBears;
 }
 
 class App extends React.Component {
@@ -78,7 +79,7 @@ class App extends React.Component {
         <div className="bears">
           {
            currentBears.map((bear, key) => (
-              <button className={(clickedBears.includes(key) && bear !== "BINGO") ? "clicked bear" : "bear" } key={key} onClick={() => this.handleBearClick(key)}>
+              <button className={(clickedBears.includes(key) || bear === "BINGO") ? "clicked bear" : "bear" } key={key} onClick={() => this.handleBearClick(key)}>
                 {
                   bear !== "BINGO"
                     ? <span>{bear}</span>
