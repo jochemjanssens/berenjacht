@@ -119,16 +119,16 @@ class App extends React.Component {
       <div className="app">
         { showFinalPopup && <div className="popup" onClick={() => this.restart()}>
               <div>
-                <p>Je hebt alle beren gevonden, proficiat!</p>
-               <p>Klik om opnieuw te beginnen</p>
+                <p className="popup-title">Je hebt alle beren gevonden, proficiat!</p>
+                <p>Klik om opnieuw te beginnen</p>
               </div>
             </div>
         }
         {
           (showPopup && !showFinalPopup) && <div className="popup" onClick={() => this.closePopup()}>
               <div>
-                <p>Je hebt een nieuwe bingo, proficiat!</p>
-               <p>Klik om verder te spelen</p>
+                <p className="popup-title">Je hebt een nieuwe bingo, proficiat!</p>
+                <p>Klik om verder te spelen</p>
               </div>
             </div>
         }
