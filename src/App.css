@@ -65,11 +65,13 @@ h2 {
   font-family: "learners", "Verdana", "sans-serif";
 
   background-color: #D5F5E3;
-  transition: background-color 1s;
+  text-decoration-color: transparent;
+  transition: all 1s;
 }
 
 .bear.clicked {
   background-color: #1ABC9C;
+  text-decoration-color: black;
   text-decoration: line-through;
 }
 
