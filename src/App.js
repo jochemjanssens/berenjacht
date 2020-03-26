@@ -84,7 +84,7 @@ class App extends React.Component {
     const bingos = activeBingos.filter(bingo => bingo);
     const oldBingos = this.state.activeBingos.filter(bingo => bingo);
 
-    const showPopup = bingos.length !== oldBingos.length;
+    const showPopup = bingos.length > oldBingos.length;
 
     this.setState({
       ...this.state,
