@@ -17,8 +17,7 @@ header {
   height: 150px;
   text-align: center;
   font-family: "fantasy", "Verdana", "sans-serif";
-
-  background-color: #7bde5f;
+  background-color: #1ABC9C;
 
   display: flex;
   flex-flow: column;
@@ -61,6 +60,13 @@ h2 {
   align-items: center;
 
   font-family: "fantasy", "Verdana", "sans-serif";
+
+  background-color: #D5F5E3;
+}
+
+.bear.clicked {
+  background-color: #1ABC9C;
+  text-decoration: line-through;
 }
 
 .bear img {

@@ -1,4 +1,6 @@
 import React from 'react';
+import bearPicture from './beer.png';
+
 import './App.css';
 
 const bears = [
@@ -35,28 +37,60 @@ const getRandomBears = () => {
   return shuffeledBears.slice(0, 9);
 }
 
-function App() {
-  return (
-    <div className="app">
-      <header>
-        <h1>Berenjacht</h1>
-        <h2>Er zijn heel veel beertjes verstopt. Help jij ons ze te zoeken. Vind alle beertjes die in het rooster staan.</h2>
-      </header>
-      <div className="bears">
-        {
-          getRandomBears().map((bear, key) => (
-            <div className="bear" key={key}>
-              {
-                bear !== "BINGO"
-                  ? <span>{bear}</span>
-                  : <img src="https://www.buildabear.com/dw/image/v2/BBNG_PRD/on/demandware.static/-/Sites-buildabear-master/default/dwbe86cf5a/26613x.jpg?sw=600&sh=600&sm=fit&q=70" alt="bingo beer" width="200" height="200" />
-              }
-            </div>
-          ))
-        }
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentBears: getRandomBears(),
+      clickedBears: []
+    };
+  }
+
+  handleBearClick(key) {
+    const { clickedBears } = this.state;
+    if (clickedBears.includes(key)) {
+      const newClickedBears = clickedBears.filter(bear => bear !== key);
+      this.setState({
+        ...this.state,
+        clickedBears: newClickedBears,
+      });
+      
+    } else {
+      this.setState({
+        ...this.state,
+        clickedBears: [
+          ...clickedBears,
+          key
+        ]
+      });
+    }
+  }
+
+  render() {
+    const { clickedBears, currentBears } = this.state;
+
+    return (
+      <div className="app">
+        <header>
+          <h1>Berenjacht</h1>
+          <h2>Er zijn heel veel beertjes verstopt. Help jij ons ze te zoeken. Vind alle beertjes die in het rooster staan.</h2>
+        </header>
+        <div className="bears">
+          {
+           currentBears.map((bear, key) => (
+              <button className={(clickedBears.includes(key) && bear !== "BINGO") ? "clicked bear" : "bear" } key={key} onClick={() => this.handleBearClick(key)}>
+                {
+                  bear !== "BINGO"
+                    ? <span>{bear}</span>
+                    : <img src={bearPicture} alt="bingo beer" width="200" height="200" />
+                }
+              </button>
+            ))
+          }
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default App;
