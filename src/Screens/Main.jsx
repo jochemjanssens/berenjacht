@@ -3,7 +3,6 @@ import { Redirect } from 'react-router-dom';
 
 import bears from '../data/bears';
 import { shuffleArray } from '../utils/data.utils';
-import BearTile from '../components/BearTile';
 import BearGrid from '../components/BearGrid';
 
 
@@ -68,13 +67,6 @@ class Main extends React.Component {
       activeBingos,
       showPopup,
       showFinalPopup: bingos.length === 6
-    });
-  }
-
-  closePopup() {
-    this.setState({
-      ...this.state,
-      showPopup: false,
     });
   }
 
