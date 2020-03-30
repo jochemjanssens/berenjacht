@@ -13,7 +13,13 @@ class Intro extends React.Component {
 
           <img src={bearPicture} alt="bingo beer" width="200" height="200" />
 
-          <Link to="/main">Start met zoeken</Link>
+          <Link to="/main">Start met zoeken Makkelijk</Link>
+          <Link to={{
+            pathname: "/main",
+            state: {
+              tiles: 15,
+            }
+          }}>Start met zoeken Moeilijk</Link>
         </header>
       </div>
     );

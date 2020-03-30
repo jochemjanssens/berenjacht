@@ -12,15 +12,9 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <Switch>
-          <Route path="/end">
-            <End />
-          </Route>
-          <Route path="/main">
-            <Main />
-          </Route>
-          <Route path="/">
-            <Intro />
-          </Route>
+          <Route path="/end" component={End} />
+          <Route path="/main" component={Main} />
+          <Route path="/" component={Intro} />
         </Switch>
       </BrowserRouter>
     );

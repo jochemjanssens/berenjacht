@@ -1,24 +1,29 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+import { pathOr } from 'ramda';
 
 import bears from '../data/bears';
 import { shuffleArray } from '../utils/data.utils';
 import BearGrid from '../components/BearGrid';
 
 
-const getRandomBears = () => {
+const getRandomBears = (nBears, middleBear) => {
   const shuffeledBears = shuffleArray(bears);
-  const correctBears = shuffeledBears.slice(0, 9)
-  correctBears[4] = "BINGO";
+  const correctBears = shuffeledBears.slice(0, nBears);
+  correctBears[middleBear] = "BINGO";
   return correctBears;
 }
 
 class Main extends React.Component {
   constructor(props) {
     super(props);
+
+    const numberOfTiles = pathOr(9, ['location', 'state', 'tiles'], props);
+    const middleBear = Math.floor(numberOfTiles / 2);
+    
     this.state = {
-      currentBears: getRandomBears(),
-      clickedBears: [4],
+      currentBears: getRandomBears(numberOfTiles, middleBear),
+      clickedBears: [middleBear],
       activeBingos: [],
       showPopup: false,
       showFinalPopup: false,
