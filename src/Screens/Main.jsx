@@ -15,10 +15,13 @@ const getRandomBears = (nBears, middleBear) => {
 }
 
 class Main extends React.Component {
+  tiles = 9;
+
   constructor(props) {
     super(props);
 
     const numberOfTiles = pathOr(9, ['location', 'state', 'tiles'], props);
+    this.tiles = numberOfTiles;
     const middleBear = Math.floor(numberOfTiles / 2);
     
     this.state = {
@@ -35,7 +38,7 @@ class Main extends React.Component {
   }
 
   checkBingo(bears) {
-    const ranges = [
+    const ranges9 = [
       [0, 1, 2],
       [3, 4, 5],
       [6, 7, 8],
@@ -43,6 +46,19 @@ class Main extends React.Component {
       [1, 4, 7],
       [2, 5, 8],
     ];
+    
+    const ranges15 = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [9, 10, 11],
+      [12, 13, 14],
+      [0, 3, 6, 9, 12],
+      [1, 4, 7, 10, 13],
+      [2, 5, 8, 11, 14],
+    ];
+
+    const ranges = this.tiles === 15 ? ranges15 : ranges9;
 
     const activeBingos = ranges.map(range => this.bearsIncludesValues(bears, range));
     return activeBingos;
@@ -66,12 +82,14 @@ class Main extends React.Component {
 
     const showPopup = bingos.length > oldBingos.length;
 
+    const totalBingos = this.tiles === 15 ? 8 : 6;
+
     this.setState({
       ...this.state,
       clickedBears: newClickedBears,
       activeBingos,
       showPopup,
-      showFinalPopup: bingos.length === 6
+      showFinalPopup: bingos.length === totalBingos
     });
   }
 

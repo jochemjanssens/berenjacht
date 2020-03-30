@@ -80,6 +80,10 @@ header img {
   transition: all 1s;
 }
 
+.bears.big .bear {
+  height: 20%;
+}
+
 .bear.clicked {
   background-color: #1ABC9C;
   text-decoration-color: black;
