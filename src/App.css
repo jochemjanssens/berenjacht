@@ -17,7 +17,7 @@ body {
 
 header {
   width: 100vw;
-  height: 150px;
+  height: 100vh;
   text-align: center;
   font-family: "learners", "Verdana", "sans-serif";
   background-color: #1ABC9C;
@@ -41,11 +41,18 @@ h2 {
   font-size: 30px;
 }
 
+header a { 
+  color: white;
+  font-size: 30px;
+
+  margin-top: 30px;
+}
+
 .bears {
   max-width: 1000px;
   max-height: 1000px;
   width: 100vw;
-  height: calc(100% - 150px);
+  height: 100%;
 
   display: flex;
   justify-content: space-between;
