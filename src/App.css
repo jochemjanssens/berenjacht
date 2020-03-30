@@ -97,9 +97,10 @@ header img {
 }
 
 .popup {
+  pointer-events: none;
+
   position: fixed;
   left: 5%;
-  top: 5%;
   right: 5%;
   bottom: 5%;
 
@@ -107,6 +108,7 @@ header img {
   font-family: "learners", "Verdana", "sans-serif";
   text-align: center;
 
+  padding: 20px;
   border: 5px solid white;
   border-radius: 20px;
   background-color: rgba(14, 102, 85, .95);
@@ -114,6 +116,8 @@ header img {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  animation: fadeOut 3s ease-out forwards;
 }
 
 .popup-title {
@@ -137,5 +141,17 @@ header img {
   }
   .bear {
     font-size: 25px;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
