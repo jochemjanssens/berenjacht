@@ -9,8 +9,8 @@ class Intro extends React.Component {
       <div className="app">
         <header>
           <h1>Berenjacht</h1>
-          <h2>Er zijn heel veel beertjes verstopt. Help jij ons ze te zoeken. Vind alle beertjes die in het rooster staan.</h2>
-          
+          <h2>Er zijn heel veel beertjes verstopt. Help jij Bazel de beer met al haar vriendjes terug te vinden?</h2>
+
           <img src={bearPicture} alt="bingo beer" width="200" height="200" />
 
           <Link to="/main">Start met zoeken</Link>
