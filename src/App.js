@@ -2,9 +2,9 @@ import React from 'react';
 
 import './App.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Intro from './Screens/Intro';
-import Main from './Screens/Main';
-import End from './Screens/End';
+import Intro from './screens/Intro';
+import Main from './screens/Main';
+import End from './screens/End';
 
 class App extends React.Component {
   render() {

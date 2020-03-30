@@ -1,34 +1,10 @@
-import React from 'react';
-import bearPicture from '../beer.png';
-import { Redirect } from 'react-router-dom';
+import React from './node_modules/react';
+import { Redirect } from './node_modules/react-router-dom';
 
-const bears = [
-  "Een beer met een tshirt",
-  "Een beer met een hartje",
-  "Een gele beer",
-  "Een hele kleine beer",
-  "Een beer met een sjaal",
-  "Een roze beer",
-  "Een beer met een strikje",
-  "Een hele grote beer",
-  "Een Disney beer",
-  "Een beer met een hoedje",
-  "Een bruine beer",
-  "Een beer in een auto",
-  "Twee beren tesamen voor een raam",
-  "Een beer op een eerste verdiep",
-  "Een staande beer",
-  "Een zittende beer",
-  "Een zwaaiende beer",
-];
+import bears from '../data/bears';
+import { shuffleArray } from '../utils/data.utils';
+import BearTile from '../components/beartile';
 
-const shuffleArray = (a) => {
-  for (let i = a.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-}
 
 const getRandomBears = () => {
   const shuffeledBears = shuffleArray(bears);
@@ -123,20 +99,17 @@ class Main extends React.Component {
           (showPopup && !showFinalPopup) && <div className="popup" onClick={() => this.closePopup()}>
               <div>
                 <p className="popup-title">Je hebt een nieuwe bingo, proficiat!</p>
-                <p>Klik om verder te spelen</p>
               </div>
             </div>
         }
         <div className="bears">
           {
            currentBears.map((bear, key) => (
-              <button className={(clickedBears.includes(key) || bear === "BINGO") ? "clicked bear" : "bear" } key={key} onClick={() => this.handleBearClick(key)}>
-                {
-                  bear !== "BINGO"
-                    ? <span>{bear}</span>
-                    : <img src={bearPicture} alt="bingo beer" width="200" height="200" />
-                }
-              </button>
+              <BearTile
+                bear={bear}
+                active={clickedBears.includes(key) || bear === "BINGO"}
+                key={key}
+              />
             ))
           }
         </div>
