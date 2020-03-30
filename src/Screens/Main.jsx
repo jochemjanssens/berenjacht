@@ -1,9 +1,9 @@
-import React from './node_modules/react';
-import { Redirect } from './node_modules/react-router-dom';
+import React from 'react';
+import { Redirect } from 'react-router-dom';
 
 import bears from '../data/bears';
 import { shuffleArray } from '../utils/data.utils';
-import BearTile from '../components/beartile';
+import BearTile from '../components/BearTile';
 
 
 const getRandomBears = () => {
@@ -77,16 +77,6 @@ class Main extends React.Component {
     });
   }
 
-  restart() {
-    this.setState({
-      currentBears: getRandomBears(),
-      clickedBears: [4],
-      activeBingos: [],
-      showPopup: false,
-      showFinalPopup: false,
-    });
-  }
-
   render() {
     const { clickedBears, currentBears, showPopup, showFinalPopup } = this.state;
 
@@ -96,11 +86,13 @@ class Main extends React.Component {
           showFinalPopup && <Redirect to="/end"/>
         }
         {
-          (showPopup && !showFinalPopup) && <div className="popup" onClick={() => this.closePopup()}>
+          (showPopup && !showFinalPopup) && (
+            <div className="popup">
               <div>
                 <p className="popup-title">Je hebt een nieuwe bingo, proficiat!</p>
               </div>
             </div>
+          )
         }
         <div className="bears">
           {
@@ -109,6 +101,7 @@ class Main extends React.Component {
                 bear={bear}
                 active={clickedBears.includes(key) || bear === "BINGO"}
                 key={key}
+                handleBearClick={() => this.handleBearClick(key)}
               />
             ))
           }

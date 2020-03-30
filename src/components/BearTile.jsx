@@ -1,9 +1,9 @@
 import React from 'react';
 import bearPicture from '../beer.png';
 
-function BearTile({ bear, active, key }) {
+function BearTile({ bear, active, handleBearClick }) {
     return (
-      <button className={active ? "clicked bear" : "bear" } key={key} onClick={() => this.handleBearClick(key)}>
+      <button className={active ? "clicked bear" : "bear" } onClick={() => handleBearClick()}>
         {
           bear !== "BINGO"
             ? <span>{bear}</span>
