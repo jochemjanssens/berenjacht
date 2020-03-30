@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import bears from '../data/bears';
 import { shuffleArray } from '../utils/data.utils';
 import BearTile from '../components/BearTile';
+import BearGrid from '../components/BearGrid';
 
 
 const getRandomBears = () => {
@@ -94,18 +95,11 @@ class Main extends React.Component {
             </div>
           )
         }
-        <div className="bears">
-          {
-           currentBears.map((bear, key) => (
-              <BearTile
-                bear={bear}
-                active={clickedBears.includes(key) || bear === "BINGO"}
-                key={key}
-                handleBearClick={() => this.handleBearClick(key)}
-              />
-            ))
-          }
-        </div>
+        <BearGrid 
+          currentBears={currentBears}
+          clickedBears={clickedBears}
+          handleBearClick={(key) => this.handleBearClick(key)}
+        />
       </div>
     );
   }
