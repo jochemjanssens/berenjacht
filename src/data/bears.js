@@ -16,6 +16,14 @@ const bears = [
     "Een staande beer",
     "Een zittende beer",
     "Een zwaaiende beer",
+    "Een aap",
+    "Een beer samen met een ander diertje",
+    "Een beer die een knuffel geeft",
+    "Een beer die buiten zit",
+    "Drie beertjes tesamen",
+    "Vier beren tesamen",
+    "Een beer met een tekstje bij",
+    "Een beer van plastic",
 ];
 
 export default bears;
