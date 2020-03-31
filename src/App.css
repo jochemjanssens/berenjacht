@@ -13,6 +13,7 @@ body {
   display: flex;
   flex-flow: column;
   align-items: center;
+  background-color: #1ABC9C;
 }
 
 header {
@@ -20,7 +21,6 @@ header {
   height: calc(100% - 50px);
   text-align: center;
   font-family: "learners", "Verdana", "sans-serif";
-  background-color: #1ABC9C;
 
   display: flex;
   flex-flow: column;
@@ -29,7 +29,6 @@ header {
 }
 
 footer {
-  background-color: #1ABC9C;
   width: 100vw;
   height: 50px;
 
@@ -99,6 +98,8 @@ header img {
   background-color: #D5F5E3;
   text-decoration-color: transparent;
   transition: all 1s;
+
+  cursor: pointer;
 }
 
 .bears.big .bear {
