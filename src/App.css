@@ -14,13 +14,14 @@ body {
   flex-flow: column;
   align-items: center;
   background-color: #1ABC9C;
+  font-family: "learners", "Verdana", "sans-serif";
 }
 
 header {
   width: 100vw;
-  height: calc(100% - 50px);
+  height: calc(100% - 80px);
   text-align: center;
-  font-family: "learners", "Verdana", "sans-serif";
+
 
   display: flex;
   flex-flow: column;
@@ -30,14 +31,14 @@ header {
 
 footer {
   width: 100vw;
-  height: 50px;
+  height: 80px;
 
   text-align: center;
 }
 
 footer p {
   margin-bottom: 10px;
-  font-size: 12px;
+  font-size: 18px;
 }
 
 footer a {
